@@ -32,10 +32,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Sizer(builder: (context, orientation, screenType) {
       return MaterialApp(
-        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
         theme: _lightTheme,
         darkTheme: _darkTheme,
-        themeMode: ThemeMode.system,
+        themeMode: ThemeMode.light,
         home: const OrderTimingPage(),
       );
     });

@@ -14,8 +14,8 @@ class _OrderTimingPageState extends State<OrderTimingPage> {
   Widget build(BuildContext context) {
     return AdaptiveLayOut(
       mobileLayout: (context) => const OrderTimingMobileLayout(),
-      tabletLayout: (context) => const SizedBox(),
-      desktopLayout: (context) => const SizedBox(),
+      tabletLayout: (context) => const OrderTimingMobileLayout(),
+      desktopLayout: (context) => const OrderTimingMobileLayout(),
     );
   }
 }

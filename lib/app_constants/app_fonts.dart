@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+
+import 'package:flutter/material.dart';
 
 double getResponsiveFontSize(BuildContext context, double fontSize) {
   double scaleFactor = getScaleFactor(context);
