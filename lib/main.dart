@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:golden_waiter/view/order_timing_page.dart';
 import 'package:sizer/sizer.dart';
+import 'view/mobile_layOut/navigation_home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         theme: _lightTheme,
         darkTheme: _darkTheme,
         themeMode: ThemeMode.light,
-        home: const OrderTimingPage(),
+        home: const NavigationPage(),
       );
     });
   }
