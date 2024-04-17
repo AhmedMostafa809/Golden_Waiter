@@ -9,14 +9,16 @@ class MonthlyRevenueMobileLayout extends StatefulWidget {
   const MonthlyRevenueMobileLayout({super.key});
 
   @override
-  State<MonthlyRevenueMobileLayout> createState() => _MonthlyRevenueMobileLayoutState();
+  State<MonthlyRevenueMobileLayout> createState() =>
+      _MonthlyRevenueMobileLayoutState();
 }
+
 String? _selectedItem;
 
-class _MonthlyRevenueMobileLayoutState extends State<MonthlyRevenueMobileLayout> {
+class _MonthlyRevenueMobileLayoutState
+    extends State<MonthlyRevenueMobileLayout> {
   @override
   Widget build(BuildContext context) {
-
     final List<ChartData2> chartData = [
       ChartData2(1, 25),
       ChartData2(2, 50),
@@ -30,14 +32,14 @@ class _MonthlyRevenueMobileLayoutState extends State<MonthlyRevenueMobileLayout>
           children: [
             Container(
               width: 70.w,
-              padding: const EdgeInsets.symmetric(horizontal: 10  ,vertical: 4),
+              height: 7.h,
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
                 border: Border.all(
                   width: 2,
-                color: const Color(0xffFF7A00),
+                  color: const Color(0xffFF7A00),
                 ),
-
               ),
               child: Center(
                 child: DropdownButton<String>(
@@ -46,24 +48,38 @@ class _MonthlyRevenueMobileLayoutState extends State<MonthlyRevenueMobileLayout>
                     fontSize: getResponsiveFontSize(context, 15.sp),
                     fontWeight: FontWeight.w500,
                   ),
-
-                  underline: SizedBox(),
-                  borderRadius:   BorderRadius.circular(30),
-                  icon: Icon(Icons.keyboard_arrow_down,size: 7.w,color: Colors.black,),
+                  elevation: 0,
+                  underline: const SizedBox(),
+                  borderRadius: BorderRadius.circular(30),
+                  icon: Icon(
+                    Icons.keyboard_arrow_down,
+                    size: 7.w,
+                    color: Colors.black,
+                  ),
                   value: _selectedItem,
-                  onChanged: ( newValue) {
+                  onChanged: (newValue) {
                     setState(() {
                       _selectedItem = newValue;
                     });
                   },
-                  items: <String>['Option 1', 'Option 2', 'Option 3', 'Option 4']
-                      .map((String value) {
+                  items: <String>[
+                    'Option 1',
+                    'Option 2',
+                    'Option 3',
+                    'Option 4'
+                  ].map((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
                       child: Text(value),
                     );
                   }).toList(),
-                  hint: Text('Select an option'),
+                  hint: Text('Select an option',  style: GoogleFonts.montserratAlternates(
+                    color: Colors.black,
+                    fontSize: getResponsiveFontSize(context, 15.sp),
+                    fontWeight: FontWeight.w500,
+                  )),
+                  focusColor: Colors.transparent,
+                  isExpanded: true,
                 ),
               ),
             ),

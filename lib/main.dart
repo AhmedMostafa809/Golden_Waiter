@@ -1,10 +1,26 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:golden_waiter/view/order_timing_page.dart';
 import 'package:sizer/sizer.dart';
-import 'view/mobile_layOut/navigation_home_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+  runApp(
+    DevicePreview(
+      enabled: true,
+      builder: (context) => const MyApp(),
+    ),
+  );
 }
+
+// void main() {
+//   runApp(const MyApp());
+// }
 
 ThemeData _darkTheme = ThemeData(
     hintColor: Colors.red,
@@ -36,10 +52,8 @@ class MyApp extends StatelessWidget {
         theme: _lightTheme,
         darkTheme: _darkTheme,
         themeMode: ThemeMode.light,
-        home: const NavigationPage(),
+        home: const OrderTimingPage(),
       );
     });
   }
 }
-
-
